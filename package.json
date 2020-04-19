@@ -1,7 +1,7 @@
 {
   "name": "footy-api",
   "version": "1.0.0",
-  "description": "API for Ferndale footy WebApp",
+  "description": "API for footy WebApp",
   "author": "Chituru Chinwah",
   "main": "app.js",
   "scripts": {
