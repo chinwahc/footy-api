@@ -2,7 +2,7 @@ let express = require('express');
 let app = express();
 let path = require('path');
 let bodyParser = require('body-parser');
-//configure express app to parse json content and form data s
+//configure express app to parse json content and form data
 //app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 let mongoose = require('mongoose');
