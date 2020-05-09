@@ -5,7 +5,7 @@ var Player = require('../models/players');
 router.get('/players', (req, res) => {
     Player.find()
         .then(players => {
-            res.send(players);
+            res.json({players:players});
         }).catch(err => {
         res.status(500).send({
             message: err.message || "Something wrong while retrieving players."
@@ -70,18 +70,18 @@ router.put('/player/:playerId', (req, res) => {
         .then(player => {
             if(!player) {
                 return res.status(404).send({
-                    message: "Player not found with id " + req.params.playerId
+                    message: `Player with id:'${req.params.playerId}' not found`
                 });
             }
             res.send(player);
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Player not found with id " + req.params.playerId
+                message: `Player with id:'${req.params.playerId}' not found`
             });
         }
         return res.status(500).send({
-            message: "Something wrong updating player with id " + req.params.playerId
+            message: `Something went wrong updating player with id:'${req.params.playerId}'`
         });
     });
 });
@@ -114,18 +114,18 @@ router.get('/player/id/:playerId', (req, res) => {
         .then(player => {
             if(!player) {
                 return res.status(404).send({
-                    message: "Player not found with id " + req.params.playerId
+                    message: `Player with id:'${req.params.playerId}' not found`
                 });
             }
-            res.send(player);
+            res.json({player:player});
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({
-                message: "Player not found with id " + req.params.playerId
+                message: `Player with id:'${req.params.playerId}' not found`
             });
         }
         return res.status(500).send({
-            message: "Something wrong retrieving player with id " + req.params.playerId
+            message: `Something went wrong updating player with id:'${req.params.playerId}'`
         });
     });
 });
@@ -139,7 +139,7 @@ router.get('/player/name/:name', (req, res) => {
                     message: `Player with name:'${req.params.name}' not found, please check name and try again`
                 });
             }
-            res.send(player);
+            res.json({player:player});
         }).catch(err => {
         if(err.kind === 'ObjectId') {
             return res.status(404).send({

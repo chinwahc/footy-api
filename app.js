@@ -24,7 +24,7 @@ db.once('open', function callback() {
 app.get('/', (req, res) => {
     res.json("Welcome to Footy API. To get all players, add '/players' to the url.");
 });
-//listen on port 3000
+//listen on port 3001
 app.listen(3001, () => {
     console.log('The footy-api server listening on port 3001')
 });
