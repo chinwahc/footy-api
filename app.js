@@ -13,7 +13,8 @@ app.use('/api/', require('./routes/players'));
 //configure express app to serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 //connect to mongodb instance where database is footydb
-mongoose.connect(config.get('database.url'), { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
+mongoose.connect('mongodb+srv://chinwahc:Chelsea4life@footy-db-ss1aq.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
+//mongoose.connect(config.get('database.url'), { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error..'));
 db.once('open', function callback() {
