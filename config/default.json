@@ -1,0 +1,12 @@
+{
+  "database": {
+    "url": "mongodb+srv://chinwahc:Chelsea4life@footy-db-ss1aq.mongodb.net/test?retryWrites=true&w=majority",
+    "port": 3000,
+    "host": "localhost",
+    "dbName": "footy-db"
+  },
+  "api": {
+    "initialLimit": 100,
+    "initialDays": 1
+  }
+}
