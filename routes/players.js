@@ -3,9 +3,9 @@ var Player = require('../models/players');
 
 // Retrieve all players from the database.
 router.get('/players', (req, res) => {
-    Player.find()
+    Player.find().sort({"goalsScored":-1})
         .then(players => {
-            res.json({players:players});
+            res.json(players);
         }).catch(err => {
         res.status(500).send({
             message: err.message || "Something wrong while retrieving players."
