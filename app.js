@@ -2,6 +2,9 @@ let express = require('express');
 let app = express();
 let path = require('path');
 let bodyParser = require('body-parser');
+const port = process.env.PORT || 3001;
+const { PORT, CLIENT_ORIGIN, DB_URL } = require('./config/config')
+
 //configure express app to parse json content and form data
 //app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -25,6 +28,6 @@ app.get('/', (req, res) => {
     res.json("Welcome to Footy API. To get all players, add '/players' to the url.");
 });
 //listen on port 3001
-app.listen(3001, () => {
-    console.log('The footy-api server listening on port 3001')
+app.listen(PORT, () => {
+    console.log(`The footy-api server listening on port ${PORT}`)
 });
