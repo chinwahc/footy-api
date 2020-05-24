@@ -17,7 +17,7 @@ app.use('/api/', require('./routes/players'));
 app.use(express.static(path.join(__dirname, 'public')));
 //connect to mongodb instance where database is footydb
 //mongoose.connect(config.get('database.url'), { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
-mongoose.connect(DB_URL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false });
+mongoose.connect(DB_URL, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false });
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error..'));
